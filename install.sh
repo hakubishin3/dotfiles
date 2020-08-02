@@ -9,5 +9,5 @@ for f in .??*; do
     [[ $f == ".DS_Store" ]] && continue
     echo $f
     mv -f ~/$f ./bachup
-    ln -s $dotfile_path/$f ~/$f
+    ln -sf $dotfile_path/$f ~/$f
 done
