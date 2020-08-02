@@ -19,3 +19,5 @@
     insteadOf = https://github.com/
 [credential]
     helper = osxkeychain
+[push]
+    default = nothing
