@@ -81,3 +81,52 @@ SAVEHIST=1000000
 
 #ヒストリの一覧を読みやすい形に変更
 HISTTIMEFORMAT="[%Y/%M/%D %H:%M:%S] "
+
+# =========================================
+# === zplugの設定
+# =========================================
+export ZPLUG_HOME=~/.zplug
+source $ZPLUG_HOME/init.zsh
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
+# zshの補完機能を更に強力にする
+# https://github.com/zsh-users/zsh-completions
+zplug "zsh-users/zsh-completions"
+
+# コマンドライン自体の色付けを行う
+# https://github.com/zsh-users/zsh-syntax-highlighting
+zplug "zsh-users/zsh-syntax-highlighting", defer:3
+
+# zshのヒストリーサーチを便利にする
+# https://github.com/zsh-users/zsh-history-substring-search
+zplug "zsh-users/zsh-history-substring-search", defer:3
+
+# ヒストリーから現在入力中のコマンドを探して, 補完を薄文字で表示する
+# https://github.com/zsh-users/zsh-autosuggestions
+zplug "zsh-users/zsh-autosuggestions"
+
+# ターミナルを256色使用可能にする
+# https://github.com/chrissicool/zsh-256color
+zplug "chrissicool/zsh-256color"
+
+# oh-my-zsh のリポジトリにある plugin/ 以下をコマンド／プラグインとして管理する
+zplug "plugins/git", from:oh-my-zsh
+
+# preztoのプラグインを使う
+zplug "modules/editor", from:prezto
+zplug "modules/history", from:prezto
+
+# インタラクティブフィルタ
+zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
+zplug "junegunn/fzf", as:command, use:bin/fzf-tmux   # tmux用の拡張
+
+# pluginがなかったらインストールする
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# source plugins and add commands to $PATH
+zplug load
