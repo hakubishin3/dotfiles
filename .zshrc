@@ -120,6 +120,9 @@ zplug "modules/history", from:prezto
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "junegunn/fzf", as:command, use:bin/fzf-tmux   # tmux用の拡張
 
+# https://github.com/denysdovhan/spaceship-prompt
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+
 # pluginがなかったらインストールする
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
