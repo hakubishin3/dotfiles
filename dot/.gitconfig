@@ -9,6 +9,7 @@
   ft = fetch
   cm = commit
   br = branch
+  sw = switch
 [color]
   ui = true
   diff = auto

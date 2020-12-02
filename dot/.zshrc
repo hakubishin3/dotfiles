@@ -133,3 +133,6 @@ fi
 
 # source plugins and add commands to $PATH
 zplug load
+
+# starship
+eval "$(starship init zsh)"
