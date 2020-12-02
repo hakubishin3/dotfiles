@@ -1,0 +1,9 @@
+format = """
+$all\
+"""
+
+[time]
+disabled = false
+format = "$time "
+time_format = "%F %TJST"
+utc_time_offset = "+9"
